@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+echo "Please paste these content in mysql:";
+echo "==========";
+echo '''USE lab_db;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+INSERT INTO `users` (id, username, password) VALUES
+(1, "admin", "admin");
+COMMIT;''';
+echo "==========";
+
+echo "The password is 'passwd'";
+sleep 10;
+docker exec -it bt-lab-2-mysql mysql -u root -p;

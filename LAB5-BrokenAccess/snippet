@@ -1,0 +1,24 @@
+#!/bin/bash
+
+LAB="BrokenAccess";
+
+if [[ $# == 0 ]]; then
+    echo "========= Blue Team LAB : $LAB ========="
+    echo "Usage:";
+    echo "Build LAB:     ./snippet build";
+    echo "Start Attack:  ./snippet attack";
+    echo "Stop LAB:      ./snippet stop";
+    exit 0
+fi
+
+if [[ $1 == "build" ]]; then
+    cd files;
+    docker-compose up -d;
+    ./db;
+elif [[ $1 == "attack" ]]; then
+    cd files;
+    python3 attack.py;
+elif [[ $1 == "stop" ]]; then
+    cd files;
+    docker-compose down;
+fi

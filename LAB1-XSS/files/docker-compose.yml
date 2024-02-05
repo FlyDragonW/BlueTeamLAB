@@ -1,0 +1,9 @@
+version: '2'
+services:
+    bt-lab-1:
+        container_name: bt-lab-1
+        build: .
+        ports:
+            - 10000:80
+        volumes:
+            - ./src:/var/www/html

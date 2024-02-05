@@ -1,0 +1,18 @@
+version: '2'
+services:
+    bt-lab-2:
+        container_name: bt-lab-2
+        build: .
+        ports:
+            - 10000:80
+        volumes:
+            - ./src:/var/www/html
+    bt-lab-2-mysql:
+        container_name: bt-lab-2-mysql
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: passwd
+            MYSQL_DATABASE: lab_db
+            MYSQL_USER: user
+            MYSQL_PASSWORD: passwd
+        
