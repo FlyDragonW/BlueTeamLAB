@@ -8,3 +8,4 @@ NOTE:
 - Using port 10000
 - `./snippet [build/attack/stop]`
 - Answer might not perfect
+- My code just so bad, feel free to judge TAT
